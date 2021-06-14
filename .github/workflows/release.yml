@@ -1,6 +1,6 @@
 # This workflow creates a new draft release that includes app binaries when there is
 # a new tag pushed to repo with "v" prefix.
-name: Release 
+name: Release
 
 on:
   push:
@@ -14,13 +14,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Prepare Tarball Prefix 
+      - name: Prepare Tarball Prefix
         id: vars
         run: |
           echo ::set-output name=prefix::${GITHUB_REPOSITORY##*/}_${GITHUB_REF##*/}
 
-      - name: Create the Release 
-        uses: tendermint/starport/actions/cli@develop
+      - name: Create the Release
+        uses: tendermint/starport/actions/cli@feat/cli
         with:
           args: build --release --release.prefix ${{ steps.vars.outputs.prefix }} -t linux:amd64 -t linux:arm64 -t darwin:amd64 -t darwin:arm64
 
