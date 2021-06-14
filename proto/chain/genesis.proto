@@ -1,0 +1,12 @@
+syntax = "proto3";
+package alice.chain.chain;
+
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/alice/chain/x/chain/types";
+
+// GenesisState defines the chain module's genesis state.
+message GenesisState {
+    // this line is used by starport scaffolding # genesis/proto/state
+    // this line is used by starport scaffolding # ibc/genesis/proto
+}
